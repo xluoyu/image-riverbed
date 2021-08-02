@@ -1,0 +1,16 @@
+{
+  "name": "image-riverbed",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:xluoyu/image-riverbed.git",
+  "author": "萧萧落雨 <8071489+xluoyu@user.noreply.gitee.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "request": "^2.88.2",
+    "simple-git": "^2.42.0"
+  },
+  "scripts": {
+    "update": "node ./scripts/update.js"
+  }
+}
