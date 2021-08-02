@@ -3,12 +3,13 @@ import git from 'simple-git'
 const githubPage = `https://xluoyu.github.io/image-riverbed/` 
 let diffArr = []
 
-git().diffSummary(['--diff-filter=M'], (err, val) => {
+git()
+.add('.')
+.commit('update')
+.diffSummary(['--diff-filter=M'], (err, val) => {
   // console.log(val)
   diffArr = val.files.map(item => item.file)
 })
-.add('.')
-.commit('update')
 .pull('origin', 'main')
 .push(['-f', 'origin', 'main'], () => {
   console.log('\x1B[32m'+'上传完成'+'\x1B[0m')
