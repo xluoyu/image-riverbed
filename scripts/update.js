@@ -6,14 +6,13 @@ let diffArr = []
 git()
 .add('.')
 .commit('update')
-.diffSummary(['--diff-filter=M'], (err, val) => {
-  // console.log(val)
-  diffArr = val.files.map(item => item.file)
+.status(['--ignored'], (err, val) => {
+  diffArr = val.not_added
 })
 .pull('origin', 'main')
 .push(['-f', 'origin', 'main'], () => {
   console.log('\x1B[32m'+'上传完成'+'\x1B[0m')
-  console.log('------ 以下是最新文件地址 ----------')
+  console.log('------ 以下是新增文件地址 ----------')
   diffArr.forEach(url => {
     console.log('\x1B[36m' + url + ': ' + githubPage + url + '\x1B[0m')
   })
