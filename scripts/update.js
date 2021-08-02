@@ -3,7 +3,8 @@ import git from 'simple-git'
 const githubPage = `https://xluoyu.github.io/image-riverbed/` 
 let diffArr = []
 
-git().diffSummary((err, val) => {
+git().diffSummary(['--diff-filter=M'], (err, val) => {
+  // console.log(val)
   diffArr = val.files.map(item => item.file)
 })
 .add('.')
