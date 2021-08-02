@@ -7,6 +7,7 @@ git()
 .add('.')
 .commit('update')
 .status(['--ignored'], (err, val) => {
+  console.log(val.not_added)
   diffArr = val.not_added
 })
 .pull('origin', 'main')
