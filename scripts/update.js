@@ -4,12 +4,12 @@ const githubPage = `https://xluoyu.github.io/image-riverbed/`
 let diffArr = []
 
 git()
-.add('.')
-.commit('update')
 .status(['--ignored'], (err, val) => {
   console.log(val.not_added)
   diffArr = val.not_added
 })
+.add('.')
+.commit('update')
 .pull('origin', 'main')
 .push(['-f', 'origin', 'main'], () => {
   console.log('\x1B[32m'+'上传完成'+'\x1B[0m')
